@@ -21,8 +21,8 @@ for i in path_list:
 path_info = [
     {
      'path': FRONTEND_PATH,
-     'tab_name': 'ng build',
-     'command': 'ng build --watch'
+     'tab_name': 'start:proxy',
+     'command': 'npm run start:proxy'
     },
     {
      'path': FRONTEND_PATH,

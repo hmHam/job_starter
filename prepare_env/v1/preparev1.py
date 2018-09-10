@@ -14,10 +14,6 @@ except IndexError:
 BACKEND_PATH = 'workspace/' + project_name + '_backend/src'
 FRONTEND_PATH = 'workspace/' + project_name + '_frontend/' + project_name
 
-path_list = [BACKEND_PATH, FRONTEND_PATH]
-for i in path_list:
-    os.system("code -n -a {0}".format(i))
-
 path_info = [
     {
      'path': FRONTEND_PATH,
@@ -45,6 +41,11 @@ path_info = [
      'command': 'python manage.py shell'
     },
 ]
+
+path_list = [BACKEND_PATH, FRONTEND_PATH]
+for i in path_list:
+    os.system("code -n -a {0}".format(i))
+
 
 for item in path_info:
     os.system(

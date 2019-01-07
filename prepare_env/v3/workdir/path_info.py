@@ -1,8 +1,6 @@
 BACKEND_PATH = 'workspace/' + project_name + '_backend/src'
 FRONTEND_PATH = 'workspace/' + project_name + '_frontend/' + project_name
 
-VS_CODE_WORKDIR_LIST = [BACKEND_PATH, FRONTEND_PATH]
-
 GUAKE_WORKDIR_LIST = [
     {
      'path': FRONTEND_PATH,
@@ -29,7 +27,4 @@ GUAKE_WORKDIR_LIST = [
      'tab_name': 'shell',
      'command': 'python manage.py shell'
     },
-]
-
-CHROME_WORKDIR_LIST = [
 ]

@@ -1,0 +1,5 @@
+https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_backend
+https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_backend/issues/
+https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_frontend
+https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_frontend/issues/
+http://localhost:8000

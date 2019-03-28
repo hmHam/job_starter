@@ -1,0 +1,83 @@
+{
+    "cs-report": {
+        "urls": [
+            "https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_backend",
+            "https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_backend/issues/",
+            "https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_frontend",
+            "https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_frontend/issues/"
+        ],
+        "work_paths": [
+            "~/workspace/coop/cs_report_frontend/csReport",
+            "~/workspace/cs-report_backend/src"
+        ],
+        "workdir": [
+            [
+                "ng-build",
+                "~/workspace/cs_report_frontend/csReport",
+                "ng-build"
+            ],
+            [
+                "frontend",
+                "~/workspace/cs_report_frontend/csReport",
+                "git branch"
+            ],
+            [
+                "runserver",
+                "~/workspace/cs-report_backend/src",
+                "python manage.py runserver"
+            ],
+            [
+                "backend",
+                "~/workspace/cs-report_backend/src",
+                "git branch"
+            ],
+            [
+                "shell",
+                "~/workspace/cs-report_backend/src",
+                "python manage.py shell"
+            ]
+        ]
+    },
+    "som2": {
+        "urls": [
+            "https://git.uci-sys.jp/som2/som2_backend/",
+            "https://git.uci-sys.jp/som2/som2_backend/issues/",
+            "https://git.uci-sys.jp/som2/som2_frontend/",
+            "https://git.uci-sys.jp/som2/som2_frontend/issues/"
+        ],
+        "work_paths": [
+            "/home/s-kato/workspace/coop/som2/som2_backend/",
+            "/home/s-kato/workspace/coop/som2/som2_frontend/"
+        ],
+        "workdir": [
+            [
+                "runserver",
+                "/home/s-kato/workspace/coop/som2/som2_backend/src",
+                "python manage.py runserver"
+            ],
+            [
+                "backend",
+                "/home/s-kato/workspace/coop/som2/som2_backend/src",
+                [
+                    "docker start postgres-test",
+                    "git branch"
+                ]
+            ],
+            [
+                "shell",
+                "/home/s-kato/workspace/coop/som2/som2_backend/src",
+                "python manage.py shell"
+            ],
+            [
+                "start:proxy",
+                "/home/s-kato/workspace/coop/som2/som2_frontend/som2/",
+                "npm run start:proxy"
+            ],
+            [
+                "frontend",
+                "/home/s-kato/workspace/coop/som2/som2_frontend/som2/",
+                "git branch"
+            ]
+        ]
+    }
+}

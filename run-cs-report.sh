@@ -12,9 +12,9 @@ tab_name=(
 path=(
   'workspace/cs-report_frontend/csReport'
   'workspace/cs-report_frontend/csReport'
-  'workspace/cs_report_backend/src'
-  'workspace/cs_report_backend/src'
-  'workspace/cs_report_backend/src'
+  'workspace/cs-report_backend/src'
+  'workspace/cs-report_backend/src'
+  'workspace/cs-report_backend/src'
 )
 ng_build_index=0
 runserver_index=2

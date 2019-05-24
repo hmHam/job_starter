@@ -1,16 +1,20 @@
 import requests
 import json
+from pprint import pprint
 
 HOST_NAME = 'localhost'
 PORT = '8000'
 BASE_URL = ''
 USER_INFO = {}
+ACCESS_LIST = []
 
 TOKEN_AUTHENTICATE_URL = ''
 
 
 def json_request(func):
     def decorated_func(*args, **kwargs):
+        global ACCESS_LIST
+        ACCESS_LIST.append(BASE_URL + kwargs['path'])
         if 'headers' in kwargs:
             kwargs['headers'].update({
                 'Content-Type': 'application/json'
@@ -19,9 +23,6 @@ def json_request(func):
             kwargs['headers'] = {
                 'Content-Type': 'application/json'
             }
-        if 'data' in kwargs:
-            print(kwargs['data'])
-            kwargs['data'] = "%s" % str(kwargs['data'])
         return func(**kwargs)
     return decorated_func
 
@@ -81,6 +82,8 @@ def get_info():
     print(f'BASE_URL: {BASE_URL}')
     print(f'TOKEN_AUTHORIZE_URL: {TOKEN_AUTHENTICATE_URL}')
     print(f'USER_INFO: {USER_INFO.get("username")}')
+    print('access log')
+    print("\n".join(ACCESS_LIST))
 
 
 @json_request
@@ -92,14 +95,14 @@ def get(path='/', query={}, headers={}):
 @json_request
 @token_authorize
 def post(path='/', data={}, headers={}, is_text=True):
-    return requests.post(BASE_URL + path, data=data, headers=headers)
+    return requests.post(BASE_URL + path, json=data, headers=headers)
 
 
 @json_request
 @token_authorize
 def put(path='/', data={}, headers={}, is_text=True):
     print(path)
-    return requests.put(BASE_URL + path, data=data, headers=headers)
+    return requests.put(BASE_URL + path, json=data, headers=headers)
 
 
 @json_request
@@ -108,12 +111,57 @@ def delete(path='/', headers={}, is_text=True):
     return requests.delete(BASE_URL + path, headers=headers)
 
 
+def return_disable_supplier_data():
+    return {"disabled_suppliers": [43]}
+
+def return_ordermain_data():
+    return
+    {
+        "updated": "2019-04-09T17:02:53.745333",
+        "supplier": {
+            "id": 42,
+            "name": ""
+        },
+        "desired_date": "2019-10-15",
+        "ordered_at": None,
+        "remark": "hoge",
+        "message": "hoge",
+        "ship_to": 6,
+        "ship_price": 27,
+        "discount_price": 920,
+        "maximum_discount_price": 0,
+        "orderdetail_set": [
+            {
+                "id": 7,
+                "name": "高性能電気シュレッダー",
+                "manufacturer": "panasonic",
+                "product_number": "hoge",
+                "unit_price": "0.00001",
+                "number": 7,
+                "tax": {
+                    "name": "消費税",
+                    "rate": 8,
+                    "tax_type": 2
+                },
+                "tax_price": 6,
+                "ship_price": 512,
+                "unit": "21",
+                "remark": "",
+                "status": 1
+            },
+        ],
+        "base_price": 3572,
+        "finances": 5,
+        "tax_price": 285,
+        "amount": 3857,
+        "order_status": 2,
+        "input_type": 1,
+        "inherited_ordermain": None
+    }
+
 def easy_set(username='admin'):
     set_host(port=8080)
     set_baseurl('api/v2/')
     set_user_info({"username": username, "password": "neko3daisuki"})
     set_token_authorize_url('supplier_login/')
-    res = post(path='suppliers/change-active/',
-               data='{"disabled_suppliers": [43]}')
-    print(res.text)
-    print(res)
+

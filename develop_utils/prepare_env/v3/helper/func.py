@@ -1,4 +1,7 @@
 import sys
+import os
+import json
+    
 
 def check_project_name(argv):
     try:
@@ -9,15 +12,10 @@ def check_project_name(argv):
     return project_name
 
 def get_settings(project_name, key):
-    import os
-    import json
-    values = None
     with open('../dev_info.json', 'r') as f:
         try:
             paths = json.load(f)[project_name][key]
         except KeyError:
             print("[!] 設定ファイルにエディターのパスを用意するための記述がない\nまたは記述が間違っています")
-            sys.exit(1)
-    print(values)
-    return
-    # return values
+            paths = []
+    

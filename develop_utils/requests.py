@@ -115,34 +115,29 @@ def return_disable_supplier_data():
     return {"disabled_suppliers": [43]}
 
 def return_ordermain_data():
-    return
-    {
+    return {
         "updated": "2019-04-09T17:02:53.745333",
         "supplier": {
-            "id": 42,
-            "name": ""
+            "id": 7,
+            "name": "発注先"
         },
         "desired_date": "2019-10-15",
         "ordered_at": None,
         "remark": "hoge",
         "message": "hoge",
-        "ship_to": 6,
+        "ship_to": 1,
         "ship_price": 27,
         "discount_price": 920,
         "maximum_discount_price": 0,
         "orderdetail_set": [
             {
-                "id": 7,
+                "id": 1,
                 "name": "高性能電気シュレッダー",
                 "manufacturer": "panasonic",
                 "product_number": "hoge",
                 "unit_price": "0.00001",
                 "number": 7,
-                "tax": {
-                    "name": "消費税",
-                    "rate": 8,
-                    "tax_type": 2
-                },
+                "tax": 1,
                 "tax_price": 6,
                 "ship_price": 512,
                 "unit": "21",
@@ -151,7 +146,7 @@ def return_ordermain_data():
             },
         ],
         "base_price": 3572,
-        "finances": 5,
+        "finances": 1,
         "tax_price": 285,
         "amount": 3857,
         "order_status": 2,

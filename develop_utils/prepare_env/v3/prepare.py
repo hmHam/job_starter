@@ -10,16 +10,22 @@ from set_environment import set_environment
 
 project_name = check_project_name(sys.argv)
 
-with open(os.path.join(os.path.dirname(__file__), 'dev_info.json'), 'r') as f:
-    try:
-        data = json.load(f)[project_name]
-        urls = data['urls']
-        paths = data['work_paths']
-        workdirs = data['workdir']
-    except KeyError:
-        print("設定ファイルにプロジェクト用の記述がありません")
-        sys.exit(1)
+try:
+    f = open(os.path.expanduser('~/dev_info.json'), 'r')
+except FileNotFoundError:
+    f = open(os.path.join(os.path.dirname(__file__), 'dev_info.json'), 'r')
 
-    browser_open(urls)
-    code_open(paths)
-    set_environment(workdirs)
+try:
+    data = json.load(f)[project_name]
+    urls = data['urls']
+    paths = data['work_paths']
+    workdirs = data['workdir']
+except KeyError:
+    print("設定ファイルにプロジェクト用の記述がありません")
+    sys.exit(1)
+
+browser_open(urls)
+code_open(paths)
+set_environment(workdirs)
+
+f.close()

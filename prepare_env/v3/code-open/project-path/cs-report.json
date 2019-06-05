@@ -1,8 +1,0 @@
-{
-    "frontend": [
-        "~/workspace/cs-report_frontend/"
-    ],
-    "backend": [
-        "~/workspace/cs_report_backend/"
-    ]
-}

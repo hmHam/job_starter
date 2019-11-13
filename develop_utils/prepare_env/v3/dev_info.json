@@ -6,11 +6,11 @@
             "https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_frontend",
             "https://git.uci-sys.jp/osaka_univ/cs_web/cs-report_frontend/issues/"
         ],
-        "work_paths": [
+        "src_paths": [
             "~/workspace/coop/cs_report_frontend/csReport",
             "~/workspace/cs-report_backend/src"
         ],
-        "workdir": [
+        "workdirs": [
             [
                 "ng-build",
                 "~/workspace/cs_report_frontend/csReport",
@@ -45,37 +45,36 @@
             "https://git.uci-sys.jp/som2/som2_frontend/",
             "https://git.uci-sys.jp/som2/som2_frontend/issues/"
         ],
-        "work_paths": [
-            "/home/s-kato/workspace/coop/som2/som2_backend/",
-            "/home/s-kato/workspace/coop/som2/som2_frontend/"
+        "src_paths": [
+            "/home/s-kato/workspace/som2/som2_backend/",
+            "/home/s-kato/workspace/som2/som2_frontend/"
         ],
-        "workdir": [
+        "workdirs": [
             [
                 "runserver",
-                "/home/s-kato/workspace/coop/som2/som2_backend/src",
-                "python manage.py runserver"
+                "/home/s-kato/workspace/som2/som2_backend/src",
+                "python manage.py runserver 8080"
             ],
             [
                 "backend",
-                "/home/s-kato/workspace/coop/som2/som2_backend/src",
+                "/home/s-kato/workspace/som2/som2_backend/src",
                 [
-                    "docker start postgres-test",
                     "git branch"
                 ]
             ],
             [
                 "shell",
-                "/home/s-kato/workspace/coop/som2/som2_backend/src",
+                "/home/s-kato/workspace/som2/som2_backend/src",
                 "python manage.py shell"
             ],
             [
                 "start:proxy",
-                "/home/s-kato/workspace/coop/som2/som2_frontend/som2/",
+                "/home/s-kato/workspace/som2/som2_frontend/som2/",
                 "npm run start:proxy"
             ],
             [
                 "frontend",
-                "/home/s-kato/workspace/coop/som2/som2_frontend/som2/",
+                "/home/s-kato/workspace/som2/som2_frontend/som2/",
                 "git branch"
             ]
         ]

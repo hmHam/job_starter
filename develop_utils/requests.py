@@ -1,6 +1,7 @@
 import requests
 import json
 from pprint import pprint
+from pathlib import Path
 
 HOST_NAME = 'localhost'
 PORT = '8000'
@@ -88,8 +89,8 @@ def get_info():
 
 @json_request
 @token_authorize
-def get(path='/', query={}, headers={}):
-    return requests.get(BASE_URL + path, query, headers=headers)
+def get(path='/', query={}, headers={}, format='json'):
+    return requests.get(BASE_URL + path, query, format=format, headers=headers)
 
 
 @json_request
@@ -107,6 +108,12 @@ def put(path='/', data={}, headers={}, is_text=True):
 
 @json_request
 @token_authorize
+def patch(path='/', data={}, headers={}, is_text=True):
+    return requests.patch(BASE_URL + path, json=data, headers=headers)
+
+
+@json_request
+@token_authorize
 def delete(path='/', headers={}, is_text=True):
     return requests.delete(BASE_URL + path, headers=headers)
 
@@ -115,44 +122,15 @@ def return_disable_supplier_data():
     return {"disabled_suppliers": [43]}
 
 def return_ordermain_data():
-    return {
-        "updated": "2019-04-09T17:02:53.745333",
-        "supplier": {
-            "id": 7,
-            "name": "発注先"
-        },
-        "desired_date": "2019-10-15",
-        "ordered_at": None,
-        "remark": "hoge",
-        "message": "hoge",
-        "ship_to": 1,
-        "ship_price": 27,
-        "discount_price": 920,
-        "maximum_discount_price": 0,
-        "orderdetail_set": [
-            {
-                "id": 1,
-                "name": "高性能電気シュレッダー",
-                "manufacturer": "panasonic",
-                "product_number": "hoge",
-                "unit_price": "0.00001",
-                "number": 7,
-                "tax": 1,
-                "tax_price": 6,
-                "ship_price": 512,
-                "unit": "21",
-                "remark": "",
-                "status": 1
-            },
-        ],
-        "base_price": 3572,
-        "finances": 1,
-        "tax_price": 285,
-        "amount": 3857,
-        "order_status": 2,
-        "input_type": 1,
-        "inherited_ordermain": None
-    }
+    fname = Path(__file__).parent / 'data/ordermain.json'
+    with open(fname) as f:
+        return json.load(f)
+
+
+def more_od_data():
+    fname = Path(__file__).parent / 'data/orderdetail.json'
+    with open(fname) as f:
+        return json.load(f)
 
 def easy_set(username='admin'):
     set_host(port=8080)

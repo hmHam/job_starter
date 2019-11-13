@@ -1,0 +1,18 @@
+{
+    "name": "品名",
+    "manufacturer": "メーカー",
+    "product_number": "規格品番",
+    "unit_price": "100.00000",
+    "number": 1,
+    "tax": {
+        "id": 1,
+        "name": "内税8％",
+        "rate": 8,
+        "tax_type": 1
+    },
+    "tax_price": 10,
+    "ship_price": 10,
+    "unit": "個",
+    "remark": "",
+    "status": 2
+}
